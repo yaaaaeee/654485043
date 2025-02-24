@@ -1,25 +1,22 @@
-const unitConversions = {
-    centimeter: 0.01, // 1 cm = 0.01 m
-    meter: 1, // Base unit
-    kilometer: 1000, // 1 km = 1000 m
-    wa: 2, // 1 วา = 2 เมตร
-    square_wa: 4, // 1 ตารางวา = 4 ตร.ม.
-    rai: 1600, // 1 ไร่ = 1600 ตร.ม.
-    ngan: 400, // 1 งาน = 400 ตร.ม.
-    foot: 0.3048, // 1 ฟุต = 0.3048 เมตร
-    sok: 0.5, // 1 ศอก = 0.5 เมตร
-    sen: 40, // 1 เส้น = 40 เมตร
-    hectare: 10000, // 1 เฮกเตอร์ = 10,000 ตร.ม.
-    acre: 4046.86, // 1 เอเคอร์ = 4046.86 ตร.ม.
-    mile: 1609.34 // 1 ไมล์ = 1609.34 เมตร
+const conversionRates = {
+    cm: 1,
+    m: 100,
+    km: 100000,
+    rai: 1600000,
+    ngan: 400000,
+    sqwa: 400,
+    ft: 30.48,
+    hectare: 1000000,
+    acre: 404685.64,
+    mile: 160934.4
 };
 
 function convertToBase(value, unit) {
-    return value * (unitConversions[unit] || 1);
+    return value * (conversionRates[unit] || 1);
 }
 
 function convertFromBase(value, targetUnit) {
-    return value / (unitConversions[targetUnit] || 1);
+    return value / (conversionRates[targetUnit] || 1);
 }
 
 function calculate() {
